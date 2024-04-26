@@ -29,3 +29,19 @@ console.log(num, '/', i, "=", num % i);
 if (count === 0) console.log(num, "tub son");
 else console.log(num, "tub son emas");
 console.log(count);
+
+
+// case 2
+
+for(let num = 2; num <= 100; num++){
+  prime = true;
+  for(let i = 2; i < num; i++){
+    if(num % i == 0){
+      prime = false;
+      break;
+    }
+  }
+  if (prime == true) {
+    console.log(num);
+  }
+}
