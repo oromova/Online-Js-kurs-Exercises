@@ -19,11 +19,13 @@
 // kodni qisqartiramiz!!!
 
 let count = 0;
-let num = 2;
+let num = 19;
 
-for (let i = 1; i <= num; i++){
-  // console.log(num, '/', i, '=', num % i);
-  if(num % i === 0) count++;  
+for (let i=2; i < num; i++) {
+console.log(num, '/', i, "=", num % i);
+  if (num % i === 0) count++;
+    if (count > 0) break;
 }
-if(count === 2) console.log(num, 'tub son');
-else console.log(num, 'tub son emas');
+if (count === 0) console.log(num, "tub son");
+else console.log(num, "tub son emas");
+console.log(count);
