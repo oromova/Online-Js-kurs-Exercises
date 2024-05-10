@@ -1,25 +1,50 @@
 // ======== 8-dars Object. Masalalar. =========
 
-// obj = {
-//   name: 'WebBrain',
-//   surname: 'acAdemy',
-//   age: 123,
-//   status: false
-// }
+// Katta harflarni chiqarsin! res = 'WBA'
 
-// // res = 'WBA'
-// res = {}
-// for ( key in obj) {
-//   if( typeof obj[key] === 'string'){
-//     if(obj[key] == /[A-Z]/i ){
-//     console.log(res = {...res, [k]: obj[k]})
+let academy = {
+  name: 'WebBrain',
+  surname: 'acAdemy',
+  age: 123,
+  status: false
+}
+
+let upperCaseLetters = '';
+for ( let key in academy){
+  if (typeof academy[key] === 'string'){
+    for (let i = 0; i < academy[key].length; i++) {
+      if(academy[key][i] === academy[key][i].toUpperCase()) {
+        upperCaseLetters += academy[key][i];
+      };
+    }
+  }
+}
+console.log(upperCaseLetters);  // WBA
+
+// Zuhriddinni yechganlari
+// const obj = {
+//   name: 'John',
+//   age: 30,
+//   city: 'New York',
+//   address: '123 Main Street'
+// };
+
+// let uppercaseLetters = '';
+// for (let key in obj) {
+//   if (typeof obj[key] === 'string') {
+//     for (let i = 0; i < obj[key].length; i++) {
+//       if (obj[key][i] === obj[key][i].toUpperCase()) {
+//         uppercaseLetters += obj[key][i];
+//       }
 //     }
 //   }
 // }
 
+// console.log(uppercaseLetters);
+
 
 // {string: 3, number: 1, boolean: 1}
-obj = {
+let obj = {
   name: 'webbrain',
   surname: 'academy',
   age: 123,
@@ -59,6 +84,34 @@ let user = {
 };
 
 user.getName()
+
+// 14 - savol. User objectini barcha(nested ham) keylarini destructure qiling. Destructure qilish vaqtida key nomiga yangi nom berishingiz mumkin. 
+
+// let user = {
+//   name: 'Webbrain',
+//   surname: 'Academy',
+//   info: {
+//     name: 'IT Center',
+//   },
+// }; 
+
+// const {name, surname, info:{name:infoName}} = user
+
+// console.log(infoName);
+
+// 3-savol. Quyidagi consoleda qanday javob chiqadi?
+
+let title = 'name';
+let object = {
+  name: 'webbrain',
+  title: "IT Center",
+  [title]: "Webbrain Academy", // name: 'webbrain Academy
+  title,   // title: name 
+}
+
+console.log(object[title]);  // Webbrain Academy
+console.log(object.title);   // name
+console.log(object.name);    // webbrain academy
 
 
 // W3RECOURSE.COM
