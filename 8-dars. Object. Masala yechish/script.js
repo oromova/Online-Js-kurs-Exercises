@@ -11,14 +11,19 @@ let academy = {
 
 let upperCaseLetters = '';
 for ( let key in academy){
-  if (typeof academy[key] === 'string'){
-    for (let i = 0; i < academy[key].length; i++) {
-      if(academy[key][i] === academy[key][i].toUpperCase()) {
-        upperCaseLetters += academy[key][i];
+  const value = academy[key];
+  if (typeof value === 'string'){
+    for (let i = 0; i < value.length; i++) {
+      // if(value[i] === value[i].toUpperCase()) {
+      //   upperCaseLetters += value[i];
+        // ASCII code bo'yicha solishtirish mumkin.
+        if (value[i].charCodeAt() < 97) {
+          upperCaseLetters += value[i];
+        }
       };
     }
   }
-}
+//}
 console.log(upperCaseLetters);  // WBA
 
 // Zuhriddinni yechganlari
@@ -52,23 +57,16 @@ let obj = {
   title: 'it'
 }
 
-function count () {
-  let str = 0;
-  let num = 0;
-  let boolean = 0;
+let res = {};
+// console.log(res.name || 0);
 
+function count () {
   for (k in obj){
-  if (typeof obj[k] === 'string') {
-     str++;
-  } else if (typeof obj[k] === 'number'){
-     num++;
-  } else {
-     boolean++;
-  }
+    const value = obj[k];
+    const key = typeof value;
+    res[key] = (res[key] || 0) + 1; 
 }
-console.log(`string ${str}ta`);
-console.log(`number ${num}ta`);
-console.log(`boolean ${boolean}ta`);
+  console.log(res);
 }
 count()
 
@@ -119,15 +117,17 @@ console.log(object.name);    // webbrain academy
 // 1. Write a JavaScript program to list the properties of a JavaScript object.
 // Sample Output: name,sclass,rollno
 
-// let student = {
-//   name : "David Rayy",
-//   sclass : "VI",
-//   rollno : 12 
-// };
+let student = {
+  name : "David Rayy",
+  sclass : "VI",
+  rollno : 12 
+};
 
 // for (key in student) {
 //   console.log(key);       // name, sclass, rollno
 // }
+// case 2
+// console.log(Object.keys(student))
 
 // 2. Write a JavaScript program to delete the rollno property from the following object. Also print the object before or after deleting the property.
 
