@@ -1,22 +1,15 @@
 // 2. getCount(str) - function yozilsin. function str dagi harflar sanog'ini chiqarib bersin.
 // ex: str = 'webbrain' {w:1, e:1, b:2, r:1, a:1, i:1, n:1}
 
-let res = {}
 const getCount = (str) => {
-  for(let i = 0; i < str.length; i++){
-    let letter = str[i];
-    if(isNaN(letter.charCodeAt() === letter.charCodeAt())) {
-      res[letter]++;
-    }
-    else {
-      res[letter]=1
-    }
+let res = {}
+  for(let i of str){
+    res[i] = (res[i] || 0) + 1  // agar undefinedga teng bo'lsa = 0 
   }
+  console.log(res);
 }
 
 getCount('webbbrain')
-console.log(res);
-
 
 
 // 3. truncate(str, n) - function yozilsin. Berilgan stringdan nta harf ajratib chiqarib bersin.
@@ -32,11 +25,23 @@ truncate("webbrain academy", 5)    // webbr
 // 4. getCurrency(str) - berilgan pul birligini faqat raqamlarini ajratib chiqaring.
 // ex: str='$1200' - 1200.
 
-const getCurrency = (str) => {
-  return str.replace("$", "")
-}
+// const getCurrency = (str) => {
+//   return str.replace("$", "")
+// }
 
-console.log(getCurrency('$1200'))  // 1200
+// console.log(getCurrency('$1200'))  // 1200
+
+// 2-usul
+const getCurrency = (str) => {
+  let newStr = ""
+  for (val of str) {
+    if(!isNaN(val)){
+      newStr += val
+    }
+  }
+  console.log(newStr);
+}
+  getCurrency("$1200")     // 1200
 
 
 // 5. Berilgan string ichidan raqam, string va characterlarni alohida sanog'i bilan chiqaring.
@@ -44,31 +49,18 @@ console.log(getCurrency('$1200'))  // 1200
 // res: {letter:6, char:3, numbers:4}
 
 const getCharacter = (str) => {
-  let obj = {
-    letter: "",
-    char: "",
-    number: "",
-  }
-  for(let i = 0; i < str.length; i++) {
-    console.log(str[i]);
-    let val = str[i]
-    if(val.charCodeAt() > 48 && val.charCodeAt() < 58) {
-      //obj.number = val
-    }
-    
+  str  = str.toLowerCase();
+  let obj = { letter: 0, char: 0, number: 0, }
+
+  for(let i of str) {
+    if(i.charCodeAt() > 47 && i.charCodeAt() < 58) obj.number++
+    else if (i.charCodeAt() > 95 && i.charCodeAt() < 123) obj.letter++
+    else obj.char++
   }
   console.log(obj);
 }
 
-getCharacter('webbr@<>!n_2022')
-
-// if(val.charCodeAt() > 64 || val.charCodeAt() < 91 && val.charCodeAt() >= 97 || val.charCodeAt() < 123) {
-//   obj.letter = val
-//   }
-
-// if(val.charCodeAt() < 48 || val.charCodeAt() > 57 && val.charCodeAt() < 65 || val.charCodeAt() > 90 && val.charCodeAt() < 97 || val.charCodeAt() > 122 && val.charCodeAt() < 127);
-// obj.char = val
-
+getCharacter('webbr@<>!n_2022')         // { letter: 6, char: 5, number: 4 }
 
 
 // 6. capitilize(str) - berilgan stringdagi barcha so'zlarni faqat bosh harfini katta harfga o'zgartirib chiqarish kk.
@@ -86,7 +78,3 @@ const capitilize = (str) => {
 }
 
 console.log(capitilize('webbrain academy'))      // Webbrain Academy
-
-
-
-
