@@ -1,7 +1,17 @@
 // 1-masala. Array ichidagi nested arraylarni parent qavsidan chiqaring.
 let ar = [1, [2, [3, [4]]], 5];
 
-console.log(ar[0], ar[1][0], ar[1][1][0], ar[1][1][1][0], ar[2]);
+function flat(arr) {
+  for (i of arr) {
+    if (Array.isArray(i)) {
+      flat(i);
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+flat((ar = [1, [2, [3, [4]]], 5])); // 1 2 3 4 5
 
 // 2-masala.
 // 2000 yildan oldinga mashinalar ro'yhatini chiqaring.
@@ -29,21 +39,30 @@ let users = [
 // console.log(users.sort((a, b)=> a.year - b.year ));
 // console.log(users.sort((a, b) => a.name.localeCompare(b.name)));
 
-for (i of users) {
-  let status = "status";
-  if(i.year < 2000){
-  i[status] = 'eski';
-}else if(i.year <= 2010) {
-  i[status] = "o'rta"
-}
-else{
-  i[status] = 'yangi'
-}};
-console.log(users);
+const eski = () => {
+  let res = users.map((val) =>
+    val.year < 2000 ? { ...val, status: "eski" } : val
+  );
+  users = res;
+  console.log(res);
+};
 
+const orta = () => {
+  let res = users.map((val) =>
+    val.year > 2000 && val.year < 2010 ? { ...val, status: "o'rta" } : val
+  );
+  users = res;
+  console.log(res);
+};
 
+const yangi = () => {
+  let res = users.map((val) =>
+    val.year > 2010 && val.year < 2022 ? { ...val, status: "yangi" } : val
+  );
+  users = res;
+  console.log(res);
+};
 
-
-
-
-
+eski();
+orta();
+yangi();
