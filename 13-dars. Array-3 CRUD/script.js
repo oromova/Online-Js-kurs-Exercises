@@ -100,3 +100,30 @@ for (i in str) {
 }
 
 letZip(zip)
+
+
+
+// array 
+// 2. arraylarni bir biriga taqqoslang
+
+const compareArr = (ar, ar2) => {
+  if(ar.toString() === ar2.toString()) {
+    console.log('Arraylar bir biriga teng');
+  }else {
+    console.log('Arraylar bir biriga teng emas');
+  }
+}
+compareArr([1, 2, 3], [1, 2, 3])
+
+
+// 3 Arraydagi ikki xonali sonlarni chiqaring
+let arr = [1, 64, 8, 27, 64, 125]
+
+const checkDigitsNum = (ar) => {
+  for (i of ar) {
+    if(i > 9 && i < 99){
+      console.log(`${i} ikki xonali son`);
+    }else console.log(`${i} ikki xonali son emas`);
+  }
+}
+checkDigitsNum(arr)
