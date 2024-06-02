@@ -12,20 +12,16 @@ let obj = {
   },
 };
 
-let sum = 0;
 const getCalc = (obj) => {
-  sum += obj.age;
-  for (val in obj) {
-    if (typeof obj[val] === "object") {
-      getCalc(obj[val]);
-    }
-  }
-  console.log(sum);
+  let sum = 0;
+  sum += obj?.age || 0;
+  if (obj.child) return sum + getCalc(obj.child);
+  else return obj.age;
 };
 
-getCalc(obj);
+console.log(getCalc(obj));     // 9
 
-// 2. Object valuelarining boolean tipidagi ma'lumotlarini keylari bilan qaytaring .
+// 2. Object valuelarining boolean tipidagi ma'lumotlarini keylari bilan qaytaring.
 
 let object = {
   id: 1,
@@ -46,7 +42,3 @@ const isBoolean = (obj) => {
 };
 
 isBoolean(object); // { offline: true, online: true, individual: false }
-
-
-
-
