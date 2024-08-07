@@ -8,23 +8,23 @@ let T =
   moment().getMinutes() < 10
     ? "0" + moment().getMinutes()
     : moment().getMinutes();
-let S =
-  moment().getSeconds() < 10
-    ? "0" + moment().getSeconds()
-    : moment().getSeconds();
-let D = moment().getDate() < 10 ? "0" + moment().getDate() : moment().getDate();
-let M =
-  moment().getMonth() < 10 ? +"0" + moment().getMonth() : moment().getMonth(); // 0 qo'shilmayapti, +1 qo'sholmadim
-let Y = moment().getFullYear();
-let d = moment().getDate();
-let l = moment().getMonth();
-let w = moment().getDay()
+// let S =
+//   moment().getSeconds() < 10
+//     ? "0" + moment().getSeconds()
+//     : moment().getSeconds();
+// let D = moment().getDate() < 10 ? "0" + moment().getDate() : moment().getDate();
+// let M =
+//   moment().getMonth() < 10 ? +"0" + moment().getMonth() : moment().getMonth(); // 0 qo'shilmayapti, +1 qo'sholmadim
+// let Y = moment().getFullYear();
+// let d = moment().getDate();
+// let l = moment().getMonth();
+// let w = moment().getDay()
 
 
 
-const date = (L, T) => {
-  return `${L}` < 12 ? `${L}:${T} AM ` : `${L}:${T} PM`;
-};
+// const date = (L, T) => {
+//   return `${L}` < 12 ? `${L}:${T} AM ` : `${L}:${T} PM`;
+// };
 // console.log(date(L, T));         // 1:40 AM
 
 // const format = (L, T, S) => {
